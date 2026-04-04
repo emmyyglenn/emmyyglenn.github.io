@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emmy Glenn — Music Industry Professional</title>
+  <meta name="description" content="Emmy Glenn is a music industry professional specializing in sync licensing, music publishing, and music supervision. Graduating from Georgia State University, May 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F8F6F1;
+      color: #2C2A27;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ═══════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════ */
+    :root {
+      --bg:       #F8F6F1;
+      --bg-alt:   #F0EDE6;
+      --bg-dark:  #1C1A17;
+      --text:     #2C2A27;
+      --muted:    #7A7570;
+      --accent:   #B8913E;
+      --accent2:  #D4AA60;
+      --border:   #DDD8D0;
+      --white:    #FFFFFF;
+      --max-w:    1160px;
+      --px:       64px;
+      --py:       100px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SHARED COMPONENTS
+    ═══════════════════════════════════════════ */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-label::after {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 56px;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      padding: 20px var(--px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(248, 246, 241, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    #nav.scrolled {
+      box-shadow: 0 4px 32px rgba(0,0,0,0.05);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--accent);
+    }
+    .nav-cta {
+      background: var(--text) !important;
+      color: var(--white) !important;
+      padding: 9px 22px;
+      border-radius: 2px;
+      font-weight: 500 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; }
+    .nav-cta.active::after { display: none !important; }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      padding: 160px var(--px) 100px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 90px;
+      align-items: center;
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(68px, 9vw, 116px);
+      font-weight: 300;
+      line-height: 0.92;
+      letter-spacing: -0.015em;
+      margin-bottom: 22px;
+    }
+    .hero-name .first { display: block; color: var(--text); }
+    .hero-name .last  { display: block; color: var(--accent); font-style: italic; }
+    .hero-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      margin-bottom: 26px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 15px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      transition: all 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.82;
+      color: var(--muted);
+      max-width: 510px;
+      margin-bottom: 46px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-ghost {
+      font-size: 14px;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Photo */
+    .hero-photo { position: relative; }
+    .photo-wrap {
+      position: relative;
+      width: 300px;
+      height: 380px;
+    }
+    .photo-frame {
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+      overflow: hidden;
+      background: var(--bg-alt);
+      position: relative;
+      z-index: 1;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .photo-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(145deg, #EAE6DE, #D9D4CA);
+    }
+    .photo-fallback .initials {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .photo-fallback p {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+    }
+    .photo-outline {
+      position: absolute;
+      top: 14px; right: -14px;
+      width: 100%; height: 100%;
+      border: 1.5px solid var(--accent);
+      border-radius: 3px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* ═══════════════════════════════════════════
+       STATS BAR
+    ═══════════════════════════════════════════ */
+    .stats-bar {
+      background: var(--bg-dark);
+      padding: 0 var(--px);
+    }
+    .stats-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 44px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 54px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    /* ═══════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════ */
+    #about {
+      padding: var(--py) var(--px);
+    }
+    .about-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.88;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { font-weight: 600; }
+
+    .about-sidebar { padding-top: 78px; }
+    .sidebar-block { margin-bottom: 44px; }
+    .sidebar-block:last-child { margin-bottom: 0; }
+    .sidebar-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-list { list-style: none; }
+    .sidebar-list li {
+      font-size: 14px;
+      color: var(--muted);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .sidebar-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════════
+       EXPERIENCE
+    ═══════════════════════════════════════════ */
+    #experience {
+      padding: var(--py) var(--px);
+      background: var(--bg-alt);
+    }
+    .experience-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .exp-card {
+      background: var(--white);
+      border-left: 3px solid var(--border);
+      padding: 40px 48px;
+      transition: border-color 0.25s;
+    }
+    .exp-card:hover { border-left-color: var(--accent); }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+    .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .exp-company {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .exp-meta { text-align: right; flex-shrink: 0; }
+    .exp-dates {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .exp-location {
+      font-size: 12px;
+      color: #B0AA9F;
+    }
+    .exp-bullets { list-style: none; }
+    .exp-bullets li {
+      font-size: 14px;
+      line-height: 1.68;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 6px 0;
+      border-bottom: 1px solid #F0ECE8;
+    }
+    .exp-bullets li:last-child { border-bottom: none; }
+    .exp-bullets li::before {
+      content: '—';
+      color: var(--accent);
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SENIOR PROJECT (FEATURED)
+    ═══════════════════════════════════════════ */
+    #senior-project {
+      background: var(--bg-dark);
+      padding: var(--py) var(--px);
+    }
+    .sp-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .sp-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sp-label::after {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .sp-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 60px;
+      max-width: 680px;
+    }
+    .sp-heading em { color: var(--accent); font-style: italic; }
+    .sp-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .sp-text p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 22px;
+    }
+    .sp-text p strong { color: rgba(255,255,255,0.88); font-weight: 500; }
+    .sp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 36px;
+    }
+    .sp-tag {
+      border: 1px solid rgba(184,145,62,0.4);
+      color: var(--accent);
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+    .sp-sidebar {}
+    .sp-detail {
+      margin-bottom: 32px;
+    }
+    .sp-detail-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 6px;
+    }
+    .sp-detail-value {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════════
+       PROJECTS
+    ═══════════════════════════════════════════ */
+    #projects {
+      padding: var(--py) var(--px);
+    }
+    .projects-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    .project-card {
+      background: var(--bg-alt);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-top: 2px solid transparent;
+      transition: all 0.22s;
+    }
+    .project-card:hover {
+      background: var(--white);
+      border-top-color: var(--accent);
+    }
+    .project-context {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.25;
+    }
+    .project-desc {
+      font-size: 14px;
+      line-height: 1.72;
+      color: var(--muted);
+      flex: 1;
+    }
+    .project-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .project-skill {
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      background: var(--border);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SKILLS
+    ═══════════════════════════════════════════ */
+    #skills {
+      padding: var(--py) var(--px);
+      background: var(--bg-alt);
+    }
+    .skills-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+    }
+    .skill-group-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 3px;
+      font-size: 13px;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--white);
+    }
+
+    /* ═══════════════════════════════════════════
+       EDUCATION
+    ═══════════════════════════════════════════ */
+    #education {
+      padding: var(--py) var(--px);
+    }
+    .edu-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .edu-card {
+      background: var(--bg-alt);
+      padding: 48px;
+      border-radius: 3px;
+    }
+    .edu-school {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .edu-college {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .edu-degree {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .edu-detail {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .edu-gpa {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .edu-gpa-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .edu-gpa-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .edu-honors {
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .edu-honor {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .honor-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .edu-coursework {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .coursework-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .coursework-list {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* Athletics card */
+    .athletics-card {
+      background: var(--bg-dark);
+      padding: 48px;
+      border-radius: 3px;
+      color: var(--white);
+    }
+    .ath-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .ath-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 22px;
+    }
+    .ath-desc {
+      font-size: 14px;
+      line-height: 1.78;
+      color: rgba(255,255,255,0.52);
+      margin-bottom: 36px;
+    }
+    .ath-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .ath-stat {
+      background: rgba(255,255,255,0.03);
+      padding: 22px 12px;
+      text-align: center;
+    }
+    .ath-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .ath-stat-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+    }
+    .ath-awards {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ath-award {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.48);
+    }
+    .ath-award::before {
+      content: '★';
+      color: var(--accent);
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════ */
+    #contact {
+      background: var(--bg-dark);
+      padding: var(--py) var(--px);
+      text-align: center;
+    }
+    .contact-inner {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .contact-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+    .contact-label::before,
+    .contact-label::after {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .contact-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+    .contact-heading em { color: var(--accent); font-style: italic; }
+    .contact-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.72;
+      margin-bottom: 52px;
+    }
+    .contact-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-email {
+      background: var(--accent);
+      color: var(--white);
+      padding: 15px 34px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .cta-email:hover { background: var(--accent2); }
+    .cta-linkedin {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.65);
+      padding: 15px 34px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .cta-linkedin:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: #111;
+      padding: 26px var(--px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: rgba(255,255,255,0.28);
+    }
+    .footer-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.18);
+      letter-spacing: 0.05em;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      :root { --px: 36px; --py: 72px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-sidebar { padding-top: 0; }
+      .sp-grid { grid-template-columns: 1fr; gap: 48px; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .edu-inner { grid-template-columns: 1fr; }
+      .nav-links { gap: 20px; }
+    }
+    @media (max-width: 620px) {
+      :root { --px: 22px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .edu-inner { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════ -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Emmy Glenn</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Georgia State University · Class of 2026</p>
+        <h1 class="hero-name">
+          <span class="first">Emmy</span>
+          <span class="last">Glenn</span>
+        </h1>
+        <p class="hero-role">Music Industry Professional</p>
+        <div class="hero-tags">
+          <a href="#skills" class="tag">Sync Licensing</a>
+          <a href="#skills" class="tag">Music Publishing</a>
+          <a href="#skills" class="tag">Music Supervision</a>
+          <a href="#skills" class="tag">Artist Strategy</a>
+          <a href="#skills" class="tag">Operations</a>
+        </div>
+        <p class="hero-desc">
+          I study Music Industry with a concentration in Management at Georgia State University, with a focus on sync licensing, publishing, and music supervision — the work that puts music on screen and keeps it earning. Currently completing a sync licensing senior capstone at Dust-to-Digital while competing as a Division I student-athlete with a 3.92 GPA.
+        </p>
+        <div class="hero-actions">
+          <a href="EmmyGlennResume.pdf" target="_blank" class="btn-primary">View Resume</a>
+          <a href="#contact" class="btn-ghost">Get in touch →</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-wrap">
+          <div class="photo-frame" id="photo-frame">
+            <img src="photo.jpg" alt="Emmy Glenn"
+              onerror="document.getElementById('photo-frame').innerHTML='<div class=\'photo-fallback\'><span class=\'initials\'>EG</span><p>Add your photo as<br>photo.jpg</p></div>'">
+          </div>
+          <div class="photo-outline"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       STATS BAR
+  ══════════════════════════════════ -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">3.92</div>
+        <div class="stat-label">GPA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40</div>
+        <div class="stat-label">Career Starts — D-I Soccer</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6×</div>
+        <div class="stat-label">Dean's &amp; President's List</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">May '26</div>
+        <div class="stat-label">Graduating</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       ABOUT
+  ══════════════════════════════════ -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-text fade-up">
+        <div class="section-label">About</div>
+        <h2 class="section-heading">Building the systems<br>that <em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--accent);">move music forward</em></h2>
+        <p>
+          I'm a graduating senior at Georgia State University's College of the Arts, studying Music Industry with a concentration in Management, with a focus on sync licensing, publishing, and the business mechanics behind how music finds its audience. I'm completing my degree in May 2026 with a 3.92 GPA and a full Division I athletic scholarship — and real, substantive experience inside an independent label.
+        </p>
+        <p>
+          For the past year, I've been embedded as an industry mentee at <strong>Dust-to-Digital</strong>, a respected independent label and archival imprint based in Atlanta. My work spans sync licensing strategy, operational systems development, and strategic analysis — including spearheading the company's first-ever catalogue build on DISCO as my senior capstone project. What makes this work uniquely challenging is the nature of Dust-to-Digital's catalogue: the label specialises in traditional, historical, and largely public domain recordings. This demands extensive and meticulous research — tracing the origins and rights status of each song, determining public domain eligibility, and preparing each track accurately for placement. That work has required developing real fluency in rights administration, metadata standards, and what it actually takes to position a catalogue competitively for placement opportunities.
+        </p>
+        <p>
+          Beyond the DISCO project, I've built internal operations documentation to help the label scale, conducted strategic analyses of their online presence and physical release revenue, and supported content production from the 2025 Big Ears Festival. Before Dust-to-Digital, I interned at <strong>Music Box</strong> in San Diego — managing digital event listings across major ticketing platforms and creating promotional content that drove real audience engagement.
+        </p>
+        <p>
+          Behind all of it is four years as a Division I student-athlete. Competing at the collegiate level while holding near-perfect grades shaped how I approach every professional challenge: with composure, precision, and a genuine understanding of what it means to perform as part of a team.
+        </p>
+      </div>
+      <div class="about-sidebar fade-up">
+        <div class="sidebar-block">
+          <div class="sidebar-title">What I work on</div>
+          <ul class="sidebar-list">
+            <li>Sync licensing catalogue development</li>
+            <li>Music rights &amp; publishing administration</li>
+            <li>Artist strategy &amp; career development</li>
+            <li>Operational systems &amp; documentation</li>
+            <li>Digital marketing &amp; content strategy</li>
+            <li>Strategic business analysis</li>
+          </ul>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-title">Currently</div>
+          <ul class="sidebar-list">
+            <li>Industry Mentorship — Dust-to-Digital</li>
+            <li>Senior Capstone: DISCO Catalogue Build</li>
+            <li>Sync Division — MTM Standard (GSU Record Label)</li>
+            <li>Dust-to-Digital online Radio (in development)</li>
+            <li>Fundraising campaign development — Dust-to-Digital Foundation</li>
+            <li>GSU Women's Soccer, Year 4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════ -->
+  <section id="experience">
+    <div class="experience-inner">
+      <div class="section-label">Experience</div>
+      <h2 class="section-heading">Where I've worked</h2>
+      <div class="exp-list">
+
+        <!-- Dust-to-Digital -->
+        <div class="exp-card fade-up">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Industry Mentorship</div>
+              <div class="exp-company">Dust-to-Digital — Independent Record Label &amp; Archival Imprint</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-dates">2024 – Present</div>
+              <div class="exp-location">Atlanta, GA</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Leading the label's inaugural sync licensing initiative — building their comprehensive music catalogue on DISCO as both a professional project and my senior capstone at Georgia State University</li>
+            <li>Developed a full suite of operational how-to guides and internal documentation, enabling new interns and volunteers to complete core tasks independently with minimal supervision</li>
+            <li>Conducted in-depth strategic analyses of the company's digital presence and physical release sales, delivering actionable recommendations for audience growth and new revenue development</li>
+            <li>Editing and producing interview content from the 2025 Big Ears Festival; contributing to strategy for how the label best leverages the resulting audio</li>
+            <li>Supporting the development and launch of the Dust-to-Digital online Radio — contributing ideas, research, and operational structure as the project takes shape</li>
+            <li>Developing fundraising campaign plans for the Dust-to-Digital Foundation, the label's affiliated non-profit organisation, to support its mission and long-term sustainability</li>
+          </ul>
+        </div>
+
+        <!-- MTM Standard -->
+        <div class="exp-card fade-up">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Sync Division</div>
+              <div class="exp-company">MTM Standard — GSU Record Label</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-dates">2025 – Present</div>
+              <div class="exp-location">Atlanta, GA</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Contributing to sync licensing strategy and music placement initiatives for Georgia State University's in-house independent record label</li>
+          </ul>
+        </div>
+
+        <!-- Music Box -->
+        <div class="exp-card fade-up">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Media Intern</div>
+              <div class="exp-company">Music Box</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-dates">Summer 2023</div>
+              <div class="exp-location">San Diego, CA</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Managed all digital event listings, posting and updating 30–50 upcoming concerts weekly across SeatGeek and partner platforms — expanding audience reach and contributing directly to ticket revenue</li>
+            <li>Created promotional social media content to boost venue visibility and drive ticket awareness for upcoming shows</li>
+            <li>Supported street-team marketing initiatives, increasing venue foot traffic and building audience engagement</li>
+          </ul>
+        </div>
+
+        <!-- Private Instructor & Soccer Coach -->
+        <div class="exp-card fade-up">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Private Instructor &amp; Soccer Coach</div>
+              <div class="exp-company">Independent — Individual Sessions</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-dates">2024 – Present</div>
+              <div class="exp-location">Atlanta, GA</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Coach individual soccer training sessions — managing client scheduling, session planning, and delivering structured performance feedback tailored to each player's skill level and goals</li>
+            <li>Taught beginner students foundational piano skills, music theory, and technique through structured private lessons, managing consistent student schedules and communicating progress to parents</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SENIOR PROJECT
+  ══════════════════════════════════ -->
+  <section id="senior-project">
+    <div class="sp-inner">
+      <div class="sp-label">Senior Capstone Project</div>
+      <h2 class="sp-heading">Opening a new revenue channel for Dust-to-Digital through <em>sync licensing</em></h2>
+      <div class="sp-grid">
+        <div class="sp-text fade-up">
+          <p>
+            For my senior capstone at Georgia State University, I partnered with <strong>Dust-to-Digital</strong> to lead the label's first-ever entry into sync licensing. The project centers on building a comprehensive music catalogue on <strong>DISCO</strong> — the industry's leading platform for music placement in film, television, advertising, and other media. The initial album in the catalogue is recorded by <strong>David Evans</strong> — a celebrated ethnomusicologist, blues musician, and one of America's foremost documentarians of African American roots music traditions — and I am working directly with him throughout this process.
+          </p>
+          <p>
+            What makes this project particularly demanding — and unique — is the nature of Dust-to-Digital's catalogue. The label specialises in traditional, historical, and largely <strong>public domain recordings</strong>, which requires deep and methodical research that most sync projects never encounter: tracing song origins across decades, verifying rights status, determining public domain eligibility, and accurately preparing each track for placement. There are no shortcuts and no templates. Beyond the research, the project has required developing fluency in <strong>rights administration, metadata tagging standards, and sync licensing strategy</strong> — learning firsthand what music supervisors look for when clearing tracks and how to position an independent catalogue competitively in this market.
+          </p>
+          <p>
+            In a landscape where physical music sales are declining, sync represents one of the most meaningful growth revenue streams for independent labels. This project is about more than a class requirement — it's about positioning Dust-to-Digital for real, sustainable income from a catalogue they've spent decades building.
+          </p>
+          <div class="sp-tags">
+            <span class="sp-tag">DISCO Platform</span>
+            <span class="sp-tag">Sync Licensing Strategy</span>
+            <span class="sp-tag">Rights Administration</span>
+            <span class="sp-tag">Metadata Standards</span>
+            <span class="sp-tag">Music Placement</span>
+            <span class="sp-tag">Revenue Development</span>
+            <span class="sp-tag">Independent Label Operations</span>
+          </div>
+        </div>
+        <div class="sp-sidebar fade-up">
+          <div class="sp-detail">
+            <div class="sp-detail-label">Organisation</div>
+            <div class="sp-detail-value">Dust-to-Digital<br>Independent Record Label &amp; Archival Imprint, Atlanta GA<br><span style="opacity:0.7; font-size:13px;">Affiliated: Dust-to-Digital Foundation (non-profit)</span></div>
+          </div>
+          <div class="sp-detail">
+            <div class="sp-detail-label">Platform</div>
+            <div class="sp-detail-value">DISCO — music licensing &amp; sync</div>
+          </div>
+          <div class="sp-detail">
+            <div class="sp-detail-label">Scope</div>
+            <div class="sp-detail-value">Full catalogue build, rights mapping, metadata structuring, sync market strategy</div>
+          </div>
+          <div class="sp-detail">
+            <div class="sp-detail-label">Academic Context</div>
+            <div class="sp-detail-value">Senior Capstone — Georgia State University College of the Arts, B.S. Music Industry Management</div>
+          </div>
+          <div class="sp-detail">
+            <div class="sp-detail-label">Timeline</div>
+            <div class="sp-detail-value">2025 – May 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════ -->
+  <section id="projects">
+    <div class="projects-inner">
+      <div class="section-label">Projects</div>
+      <h2 class="section-heading">Selected work</h2>
+      <div class="projects-grid">
+
+        <div class="project-card fade-up">
+          <div class="project-context">Dust-to-Digital · 2025</div>
+          <div class="project-name">Digital Presence Audit &amp; Strategy</div>
+          <div class="project-desc">Conducted a comprehensive analysis of Dust-to-Digital's online presence across their website, Substack, and Instagram. Benchmarked against comparable labels, identified gaps, and delivered actionable recommendations for audience growth and engagement.</div>
+          <div class="project-skills">
+            <span class="project-skill">Brand Strategy</span>
+            <span class="project-skill">Social Media Analysis</span>
+            <span class="project-skill">Content Planning</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-context">Dust-to-Digital · 2025</div>
+          <div class="project-name">Physical Sales Revenue Analysis</div>
+          <div class="project-desc">Analysed the label's physical release sales in the context of declining industry-wide physical music revenue. Developed recommendations for identifying new income streams and maximising the value of their catalogue as market conditions evolve.</div>
+          <div class="project-skills">
+            <span class="project-skill">Financial Analysis</span>
+            <span class="project-skill">Revenue Strategy</span>
+            <span class="project-skill">Music Industry Research</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-context">Dust-to-Digital · 2025</div>
+          <div class="project-name">Operations Documentation System</div>
+          <div class="project-desc">Designed and wrote a suite of how-to guides covering core label operations tasks. Built to enable new volunteers and interns to complete tasks independently with minimal supervision — creating scalable infrastructure for a growing organisation.</div>
+          <div class="project-skills">
+            <span class="project-skill">Operations</span>
+            <span class="project-skill">Documentation</span>
+            <span class="project-skill">Systems Design</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-context">Dust-to-Digital · 2025</div>
+          <div class="project-name">Big Ears Festival Content Production</div>
+          <div class="project-desc">Conducting and editing artist interviews from the 2025 Big Ears Festival. Contributing to content strategy — determining the best formats and distribution channels to maximise the impact of the resulting material for the label's audience.</div>
+          <div class="project-skills">
+            <span class="project-skill">Content Production</span>
+            <span class="project-skill">Interview Editing</span>
+            <span class="project-skill">Content Strategy</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-context">GSU Artist Representation · 2024</div>
+          <div class="project-name">Artist Management Semester Project</div>
+          <div class="project-desc">Operated as a professional management team for an assigned artist over a full semester. Developed a complete strategy covering branding, release planning, audience development, live performance preparation, and long-term career goal setting.</div>
+          <div class="project-skills">
+            <span class="project-skill">Artist Management</span>
+            <span class="project-skill">Release Planning</span>
+            <span class="project-skill">Branding</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-context">GSU Survey of Business · 2024</div>
+          <div class="project-name">Business Audit — Bar44, Marietta GA</div>
+          <div class="project-desc">Led a semester-long consulting audit of a real Marietta business — evaluating operations, customer experience, financial health, and internal structure. Delivered a full professional audit with recommendations to improve efficiency and performance.</div>
+          <div class="project-skills">
+            <span class="project-skill">Business Auditing</span>
+            <span class="project-skill">Financial Review</span>
+            <span class="project-skill">Consulting</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-context">GSU Entrepreneurship in Music · 2024–2025</div>
+          <div class="project-name">Music Industry Startup Pitch</div>
+          <div class="project-desc">Collaborated with a small team over a full semester to develop an original music industry business concept from scratch — conducting market research, building a business model, developing financial projections, and delivering a high-level pitch presentation to the class.</div>
+          <div class="project-skills">
+            <span class="project-skill">Entrepreneurship</span>
+            <span class="project-skill">Business Strategy</span>
+            <span class="project-skill">Pitch Presentation</span>
+            <span class="project-skill">Team Collaboration</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SKILLS
+  ══════════════════════════════════ -->
+  <section id="skills">
+    <div class="skills-inner">
+      <div class="section-label">Skills</div>
+      <h2 class="section-heading">What I bring</h2>
+      <div class="skills-grid">
+        <div class="fade-up">
+          <div class="skill-group-title">Music Industry</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Sync Licensing</span>
+            <span class="skill-tag">Music Publishing</span>
+            <span class="skill-tag">Rights Administration</span>
+            <span class="skill-tag">Copyright Law</span>
+            <span class="skill-tag">Artist Development</span>
+            <span class="skill-tag">Artist Management</span>
+            <span class="skill-tag">Music Distribution</span>
+            <span class="skill-tag">DISCO Platform</span>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="skill-group-title">Marketing &amp; Strategy</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Digital Marketing</span>
+            <span class="skill-tag">Social Media Strategy</span>
+            <span class="skill-tag">Content Creation</span>
+            <span class="skill-tag">Brand Strategy</span>
+            <span class="skill-tag">Campaign Planning</span>
+            <span class="skill-tag">Audience Development</span>
+            <span class="skill-tag">Streaming Analytics</span>
+            <span class="skill-tag">Ticketing Platforms</span>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="skill-group-title">Operations &amp; Business</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Operations Documentation</span>
+            <span class="skill-tag">Systems Development</span>
+            <span class="skill-tag">Business Analysis</span>
+            <span class="skill-tag">Financial Literacy</span>
+            <span class="skill-tag">Budgeting</span>
+            <span class="skill-tag">Project Management</span>
+            <span class="skill-tag">Microsoft Excel</span>
+            <span class="skill-tag">Strategic Planning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       EDUCATION
+  ══════════════════════════════════ -->
+  <section id="education">
+    <div class="edu-inner">
+
+      <div class="edu-card fade-up">
+        <div class="section-label" style="margin-bottom:32px;">Education</div>
+        <div class="edu-school">Georgia State University</div>
+        <div class="edu-college">College of the Arts · Atlanta, GA</div>
+        <div class="edu-degree">B.S. Music Industry Management</div>
+        <div class="edu-detail">Concentration: Music Management · Expected May 2026</div>
+        <div class="edu-gpa">
+          <span class="edu-gpa-num">3.92</span>
+          <span class="edu-gpa-label">GPA</span>
+        </div>
+        <div class="edu-honors">
+          <div class="edu-honor"><span class="honor-dot"></span>Dean's List × 2 &nbsp;|&nbsp; President's List × 4</div>
+          <div class="edu-honor"><span class="honor-dot"></span>Sunbelt Conference Commissioner's List × 3</div>
+          <div class="edu-honor"><span class="honor-dot"></span>HOPE Scholarship Recipient</div>
+          <div class="edu-honor"><span class="honor-dot"></span>Athletic Scholarship Recipient</div>
+        </div>
+        <div class="edu-coursework">
+          <div class="coursework-label">Key Coursework</div>
+          <div class="coursework-list">
+            Artist Representation &amp; Management · Music Marketing &amp; Global Distribution · Copyright &amp; Music Publishing · Legal Aspects of the Music Industry · Entrepreneurship in Music · New Ventures in Creative Industries · Accounting I &amp; II · Music Industry Internship
+          </div>
+        </div>
+      </div>
+
+      <div class="athletics-card fade-up">
+        <div class="ath-label">Athletics</div>
+        <div class="ath-title">GSU Women's Soccer<br>Division I Student-Athlete</div>
+        <div class="ath-desc">
+          Four years competing at the Division I level while maintaining a near-perfect GPA on a full athletic scholarship. Athletics shaped my professional approach in ways no classroom can — precision, composure under pressure, and a deep understanding of what it means to perform as part of a team.
+        </div>
+        <div class="ath-stats-grid">
+          <div class="ath-stat">
+            <div class="ath-num">40</div>
+            <div class="ath-stat-label">Career Starts</div>
+          </div>
+          <div class="ath-stat">
+            <div class="ath-num">4</div>
+            <div class="ath-stat-label">Seasons</div>
+          </div>
+          <div class="ath-stat">
+            <div class="ath-num">D-I</div>
+            <div class="ath-stat-label">Division</div>
+          </div>
+        </div>
+        <div class="ath-awards">
+          <div class="ath-award">Center Parc Student Athlete of the Week</div>
+          <div class="ath-award">Newcomer Academic MVP</div>
+          <div class="ath-award">Sunbelt Conference Commissioner's List × 3</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       CONTACT
+  ══════════════════════════════════ -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-label">Let's Connect</div>
+      <h2 class="contact-heading">Get in <em>touch</em></h2>
+      <p class="contact-sub">
+        Open to roles in sync licensing, music publishing, and music supervision — and the broader music business. Graduating May 2026. Based in Atlanta — open to relocating.
+      </p>
+      <div class="contact-actions">
+        <a href="mailto:emmyyglenn@gmail.com" class="cta-email">emmyyglenn@gmail.com</a>
+        <a href="tel:4044146947" class="cta-linkedin">(404) 414-6947</a>
+        <a href="https://www.linkedin.com/in/emmy-glenn-b94389333/" target="_blank" class="cta-linkedin">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer>
+    <span class="footer-name">Emmy Glenn</span>
+    <span class="footer-note">Music Industry Professional · Atlanta, GA · 2026</span>
+  </footer>
+
+  <!-- ══════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════ -->
+  <script>
+    // Nav shadow on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // Active nav link tracking
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sectionEls = document.querySelectorAll('section[id]');
+
+    const linkObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('active', isActive);
+          });
+        }
+      });
+    }, { threshold: 0.35, rootMargin: '-70px 0px -35% 0px' });
+
+    sectionEls.forEach(s => linkObserver.observe(s));
+
+    // Fade-up on scroll
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.closest('.projects-grid, .skills-grid, .exp-list')
+            ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 90
+            : 0;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
+    fadeEls.forEach(el => fadeObserver.observe(el));
+
+    // Fix anchor link scrolling (works for local file:// and hosted)
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          const offset = 72; // nav height
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
